@@ -18,7 +18,7 @@ class TwitterAnalysis:
     def __init__(self,keyword):
         self.keyword = keyword
        
-    def analyse_data(self):
+    def analyse_data(self,dataset_type="full"):
         hashtagset= {}
         locationset= {}
         hashtagdump=[]
@@ -26,7 +26,7 @@ class TwitterAnalysis:
         sourcedump = []
         tweetdata = []
         placedump =[]
-        for filename in glob.glob("prepped/"+self.keyword.replace(" ", "_")+"_major*"):
+        for filename in glob.glob("prepped/"+self.keyword.replace(" ", "_")+"_"+dataset_type+"*"):
             print("Loading"+filename)
             with open(filename, 'r') as json_file: 
                 tweetdata += json.load(json_file)

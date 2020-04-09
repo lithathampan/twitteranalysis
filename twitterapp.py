@@ -13,6 +13,7 @@ def __main__():
         "--toptagcount", help="Number of latest tweets to check for toptag, multiples of 100", default=MAXTWEETCOUNT)
     parser.add_argument("--consumer_key", help="consumer_key used for API authentication", default=None)
     parser.add_argument("--consumer_secret", help="consumer_secret used for API authentication", default=None)
+    parser.add_argument("--analyze_type", help="Dataset to be used for analysis", default="full",choices=["full","major"])
 
 
     args = parser.parse_args()
@@ -25,6 +26,6 @@ def __main__():
         prepareobj.prepare_data()
     elif (args.command == "analyze"):
         analyseobj = TwitterAnalysis(args.keyword)
-        analyseobj.analyse_data()
+        analyseobj.analyse_data(args.analyze_type)
 
 __main__()

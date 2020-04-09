@@ -36,6 +36,9 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
 
+   --analyze_type {full,major}
+                        Dataset to be used for analysis
+
   --consumer_key CONSUMER_KEY
                         consumer_key used for API authentication
   --consumer_secret CONSUMER_SECRET
